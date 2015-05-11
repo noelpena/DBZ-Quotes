@@ -1,8 +1,16 @@
-$body-bg:				    #fff;
-$navbar-default-bg: 	    #ecf0f1;
-$navbar-default-link-color: #FF0207;
-$btn-primary-bg:            ;
+$body-bg:				    				#fff;
+$navbar-default-bg: 	   	 	#ecf0f1;
 
 @import 'bootstrap';
 
-// #F7FF14
+.left{float: left;}
+.right{float: right;}
+
+.clear{clear: both;}
+.clear-left{clear: left;}
+.clear-right{clear: right;}
+
+
+.center{
+	text-align: center;
+}
