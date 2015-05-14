@@ -1,5 +1,5 @@
-$body-bg:				    				#fff;
-$navbar-default-bg: 	   	 	#ecf0f1;
+$body-bg:           #ffffff;
+$navbar-default-bg: #ecf0f1;
 
 @import 'bootstrap';
 
@@ -10,7 +10,14 @@ $navbar-default-bg: 	   	 	#ecf0f1;
 .clear-left{clear: left;}
 .clear-right{clear: right;}
 
+.center{text-align: center;}
+.left-align{text-align: left;}
+.right-align{text-align: right;}
 
-.center{
-	text-align: center;
+.sidebar{
+  width: 25%;
+}
+
+.hp-welcome{
+  width: 80%;
 }

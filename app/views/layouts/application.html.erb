@@ -9,15 +9,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
-
 	<%= render 'layouts/header' %>
-
-
-		<%= render 'layouts/sidebar' %><div class="container">
-		<div class="left">
-			<%= yield %>
-		</div>
-	</div>
-
+    <div class="container">
+      <%= render 'layouts/sidebar' %>
+      <div class="hp-welcome right">
+        <%= yield %>
+      </div>
+    </div>
 </body>
 </html>
