@@ -9,12 +9,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
-	<%= render 'layouts/header' %>
-    <div class="container">
-      <%= render 'layouts/sidebar' %>
-      <div class="hp-welcome right">
-        <%= yield %>
-      </div>
+  <%= render 'layouts/header' %>
+  <div class="container">
+    <%= render 'layouts/sidebar' %>
+    <div class="hp-welcome right">
+      <% flash.each do |name,msg| %>
+        <%= content_tag(:div, msg, class: "alert alert-info") %>
+      <% end %>
+      <%= yield %>
     </div>
+  </div><!--container End tag-->
 </body>
 </html>
