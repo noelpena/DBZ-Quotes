@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :quotes
+
   devise_for :users do
 		get 'logout' => 'devise/sessions#destroy'
 	end
