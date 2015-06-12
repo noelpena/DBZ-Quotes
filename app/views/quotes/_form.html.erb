@@ -11,23 +11,23 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="field form-group">
     <%= f.label :season %><br>
-    <%= f.text_field :season %>
+    <%= f.text_field :season, class: "form-control" %>
   </div>
-  <div class="field">
+  <div class="field form-group">
     <%= f.label :episode %><br>
-    <%= f.text_field :episode %>
+    <%= f.text_field :episode, class: "form-control" %>
   </div>
-  <div class="field">
+  <div class="field form-group">
     <%= f.label :character %><br>
-    <%= f.text_field :character %>
+    <%= f.text_field :character, class: "form-control" %>
   </div>
-  <div class="field">
+  <div class="field form-group">
     <%= f.label :description %><br>
-    <%= f.text_field :description %>
+    <%= f.text_field :description, class: "form-control" %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+		<%= f.submit class: "btn btn-primary" %>
   </div>
 <% end %>
