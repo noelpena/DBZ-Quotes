@@ -7,6 +7,7 @@
       <th>Episode</th>
       <th>Character</th>
       <th>Description</th>
+      <th>User Email</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -18,9 +19,12 @@
         <td><%= quote.episode %></td>
         <td><%= quote.character %></td>
         <td><%= quote.description %></td>
+				<td><%= quote.user.email if quote.user %></td>
         <td><%= link_to 'Show', quote %></td>
-        <td><%= link_to 'Edit', edit_quote_path(quote) %></td>
-        <td><%= link_to 'Destroy', quote, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+				<% if quote.user == current_user %>
+					<td><%= link_to 'Edit', edit_quote_path(quote) %></td>
+					<td><%= link_to 'Destroy', quote, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+				<% end %>
       </tr>
     <% end %>
   </tbody>
@@ -28,4 +32,6 @@
 
 <br>
 
-<%= link_to 'New Quote', new_quote_path %>
+<% if user_signed_in? %>
+	<%= link_to 'New Quote', new_quote_path %>
+<% end %>

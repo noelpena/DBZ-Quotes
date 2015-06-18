@@ -1,5 +1,7 @@
 class QuotesController < ApplicationController
   before_action :set_quote, only: [:show, :edit, :update, :destroy]
+	before_action	:correct_user, only: [:edit, :update, :destroy]
+	before_action :authenticate_user!, except: [:index, :show]
 
   respond_to :html
 
@@ -13,7 +15,7 @@ class QuotesController < ApplicationController
   end
 
   def new
-    @quote = Quote.new
+		@quote = current_user.quotes.build
     respond_with(@quote)
   end
 
@@ -21,7 +23,7 @@ class QuotesController < ApplicationController
   end
 
   def create
-    @quote = Quote.new(quote_params)
+    @quote = current_user.quotes.build(quote_params)
     @quote.save
     respond_with(@quote)
   end
@@ -40,6 +42,11 @@ class QuotesController < ApplicationController
     def set_quote
       @quote = Quote.find(params[:id])
     end
+	
+		def correct_user
+			@quote = current_user.quotes.find_by(id: params[:id])
+			redirect_to quotes_path, notice: "Not authorized to edit this quote" if@quote.nil?
+		end
 
     def quote_params
       params.require(:quote).permit(:season, :episode, :character, :description)
