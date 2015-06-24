@@ -49,6 +49,6 @@ class QuotesController < ApplicationController
 		end
 
     def quote_params
-      params.require(:quote).permit(:season, :episode, :character, :description)
+			params.require(:quote).permit(:image, :season, :episode, :character, :description)
     end
 end
