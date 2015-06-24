@@ -1,39 +1,19 @@
-<h1>Listing quotes</h1>
-
-<table>
-  <thead>
-    <tr>
-     	<th>Image</th>
-      <th>Season</th>
-      <th>Episode</th>
-      <th>Character</th>
-      <th>Description</th>
-      <th>User Email</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @quotes.each do |quote| %>
-      <tr>
-				<td><%= image_tag quote.image.url(:medium) %></td>
-        <td><%= quote.season %></td>
-        <td><%= quote.episode %></td>
-        <td><%= quote.character %></td>
-        <td><%= quote.description %></td>
-				<td><%= quote.user.email if quote.user %></td>
-        <td><%= link_to 'Show', quote %></td>
-				<% if quote.user == current_user %>
-					<td><%= link_to 'Edit', edit_quote_path(quote) %></td>
-					<td><%= link_to 'Destroy', quote, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-				<% end %>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<% if user_signed_in? %>
-	<%= link_to 'New Quote', new_quote_path %>
-<% end %>
+<div id="quotes" class="transitions-enabled">
+	<% @quotes.each do |quote| %>
+		<div class="box panel panel-default">
+			<%= image_tag quote.image.url(:medium) %>
+			<div class="panel-body">
+				<%= quote.season %>
+				<%= quote.episode %>
+				<%= quote.character %>
+				<%= quote.description %>
+				<%= quote.user.email if quote.user %>
+				<%= link_to 'Show', quote %>
+					<% if quote.user == current_user %>
+						<%= link_to 'Edit', edit_quote_path(quote) %>
+						<%= link_to 'Destroy', quote, method: :delete, data: { confirm: 'Are you sure?' } %>
+					<% end %>
+				</div>
+		</div>
+	<% end %>
+</div>
