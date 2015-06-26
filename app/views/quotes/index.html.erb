@@ -7,8 +7,6 @@
 				<%= quote.season %>
 				<%= quote.episode %>
 				<%= quote.character %>
-				<%= quote.description %>
-				<%= quote.user.email if quote.user %>
 				<p><%= quote.description %></p>
 				<p><strong><%= quote.user.email if quote.user %></strong></p>
 				<% if quote.user == current_user %>

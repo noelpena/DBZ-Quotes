@@ -1,26 +1,37 @@
-<%= image_tag @quote.image.url %>
-
-<p>
-  <strong>Season:</strong>
-  <%= @quote.season %>
-</p>
-
-<p>
-  <strong>Episode:</strong>
-  <%= @quote.episode %>
-</p>
-
-<p>
-  <strong>Character:</strong>
-  <%= @quote.character %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @quote.description %>
-</p>
-
-<% if @quote.user == current_user %>
-	<%= link_to 'Edit', edit_quote_path(@quote) %> |
-<% end %>
 <%= link_to 'Back', quotes_path %>
+
+<div class="row">
+	<div class="col-md-offset-2 col-md-8">
+		<div class="panel panel-default">
+			<div class="panel-heading center">
+				<%= image_tag @quote.image.url(:medium) %>
+			</div>
+			<div class="panel-body">
+				<p>
+					<strong>Season:</strong>
+					<%= @quote.season %>
+				</p>
+
+				<p>
+					<strong>Episode:</strong>
+					<%= @quote.episode %>
+				</p>
+
+				<p>
+					<strong>Character:</strong>
+					<%= @quote.character %>
+				</p>
+
+				<p>
+					<strong>Description:</strong>
+					<%= @quote.description %>
+				</p>
+
+				<% if @quote.user == current_user %>
+					<%= link_to 'Edit', edit_quote_path(@quote) %>
+				<% end %>
+			</div>
+		</div>
+	</div>
+
+</div>
