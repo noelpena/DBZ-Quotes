@@ -1,19 +1,25 @@
 <div id="quotes" class="transitions-enabled">
 	<% @quotes.each do |quote| %>
 		<div class="box panel panel-default">
-			<%= image_tag quote.image.url(:medium) %>
+		
+			<%= link_to image_tag(quote.image.url(:medium)), quote %>
 			<div class="panel-body">
 				<%= quote.season %>
 				<%= quote.episode %>
 				<%= quote.character %>
 				<%= quote.description %>
 				<%= quote.user.email if quote.user %>
-				<%= link_to 'Show', quote %>
-					<% if quote.user == current_user %>
-						<%= link_to 'Edit', edit_quote_path(quote) %>
-						<%= link_to 'Destroy', quote, method: :delete, data: { confirm: 'Are you sure?' } %>
+				<p><%= quote.description %></p>
+				<p><strong><%= quote.user.email if quote.user %></strong></p>
+				<% if quote.user == current_user %>
+					<%= link_to edit_quote_path(quote) do %>
+						<span class="glyphicon glyphicon-edit"></span> Edit
 					<% end %>
-				</div>
+				<%= link_to quote, method: :delete, data: { confirm: 'Are you sure?' } do %>
+						<span class="glyphicon glyphicon-trash"></span> Delete
+					<% end %>
+				<% end %>
+			</div>
 		</div>
 	<% end %>
 </div>

@@ -10,11 +10,15 @@
     	<ul class="nav navbar-nav navbar-right">
 				<!-- Links Go here -->
 				<% if user_signed_in? %>
-					<li><%= link_to 'New Quote', new_quote_path %></li>
+					<li>
+						<%= link_to new_quote_path do %>
+              <span class="glyphicon glyphicon-plus"></span> New Quote
+            <% end %>
+					</li>
 					<li><%= link_to "Account Settings", edit_user_registration_path %></li>					
 					<li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
 				<% else%>
-				<li><%= link_to "Sign In", new_user_session_path, method: :delete %></li>
+					<li><%= link_to "Sign In", new_user_session_path, method: :delete %></li>
 				<% end %>
       </ul>
       <form class="navbar-form navbar-right" role="search">
